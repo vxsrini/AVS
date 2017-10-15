@@ -53,7 +53,7 @@ module.exports = {
         const myCurl = spawn('curl', args);
         const cv = spawn('cvlc', ['-']);
 
-        record.recEmit.on('FileReady', function () {
+        record.recEmit.once('FileReady', function () {
             console.log("FileReady Event received");
             fs.createReadStream("./question.wav").pipe(myCurl.stdin);
         });

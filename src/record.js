@@ -18,6 +18,7 @@ var micInputStream;
 var outputFileStream;
 var recEmit = new ee.EventEmitter();
 
+
 module.exports = {
     recordWavV1 : function () {
         micInstance = mic({
@@ -26,8 +27,9 @@ module.exports = {
             filetype:'wav',
             channels: '1',
             debug: true,
-            exitOnSilence: 10
+            exitOnSilence: 20
         });
+
         micInputStream = micInstance.getAudioStream();
          
         outputFileStream = fs.createWriteStream('./question.wav');
